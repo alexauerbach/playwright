@@ -1,0 +1,44 @@
+Acesso de teste = Consignado/registro-ocorrencias
+
+Playwright 0:16
+Do universo javascript é o framework mais utilizado
+
+instalando framework jest e playwright via node
+- mkdir jestPlaywright //criar pasta do repositorio
+- cd jestPlaywright
+- git init 
+- npm init -y
+- npm install jest playwright
+
+Criar novo arquivo "jest.config.js" onde vai criar as configuraçoes do jest
+module.exports = {
+	bail: 0, //bail é quantas vezes vamos ver o erro no console antes de parar
+	testMatch: [**/*.test.js], // regex para identificar os arquivos para rodarem
+	transformIgnorePatterns: ["\\\\node_modules\\\\"] // define quais pastas não precisa ler
+	testTimeout: 200000, // tempo limite da aplicação
+};
+
+Criar uma pasta src // onde ficam todos os testes
+	Criar arquivo primeiroTeste.test.js
+	const { chromium } = require("chromium");
+	let browser;
+	let context;
+	let page;
+
+	beforeAll(async () => {
+		browser = await chromium.launch();
+		context = await browser.newContext();
+	});
+
+	beforeEach(async () => {
+		page = await context.getPage();
+	});
+
+	afterEach(async () => {
+		page = await context.getPage();
+	});
+
+	afterEach(async () => {
+		page = await context.getPage();
+	});
+
